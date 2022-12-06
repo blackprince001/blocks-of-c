@@ -1,8 +1,17 @@
 #include <stdio.h>
+#include "utility/context_manager.c"
 
-int main() 
-{
-	printf("Hello World!\n");
+int main() {
+  FileContextManager* file = FileContextManager_new("file.txt");
 
-	return (0);
+  if (FileContextManager_enter(file)) {
+    char line[256];
+    while (fgets(line, sizeof(line), file->file)) printf("%s", line);
+
+    FileContextManager_exit(file, 0, NULL, NULL);
+  } else {
+    printf("Failed to open the file");
+    
+    FileContextManager_exit(file, 0, NULL, NULL);
+  }
 }
