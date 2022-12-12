@@ -32,6 +32,18 @@ node_t *find_node(node_t *head, int value) {
     return NULL;
 }
 
+void insert_at_end(node_t *head, node_t *node_to_insert) {
+    node_t *tmp = head;
+    while (tmp != NULL) {
+        if (tmp->next == NULL) {
+            tmp->next = node_to_insert;
+            node_to_insert->next = NULL;
+            tmp = node_to_insert;
+        }
+        tmp = tmp->next;
+    }
+}
+
 void insert_after_node(node_t *node_to_insert_after, node_t *newnode) {
     newnode->next = node_to_insert_after->next;
     node_to_insert_after->next = newnode;
@@ -43,6 +55,27 @@ void printList(node_t *head) {
         printf("%d - ", temp->value);
         temp = temp->next;
     } printf("\n");
+}
+
+void example_no2() {
+
+    node_t *head = NULL;
+    node_t *tmp;
+
+    for (int i=0; i < 20; ++i) {
+        tmp = create_new_node(i);
+        head = insert_at_head(head, tmp);
+    }
+    printList(head);
+
+    node_t *pfind = find_node(head, 12);
+    printf("Found node with value - %d\n", pfind->value);
+
+    for (int i=20; i < 30; ++i) {
+        tmp = create_new_node(i);
+        insert_at_end(head, tmp);
+    }
+    printList(head);
 }
 
 void example_no1() {
@@ -92,19 +125,4 @@ void example_no1() {
     head = tmp;
 
     printList(head);
-}
-
-void example_no2() {
-
-    node_t *head = NULL;
-    node_t *tmp;
-
-    for (int i=0; i < 20; ++i) {
-        tmp = create_new_node(i);
-        head = insert_at_head(head, tmp);
-    }
-
-    node_t *pfind = find_node(head, 12);
-    printList(head);
-    printf("Found node with value - %d", pfind->value);
 }
