@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include "utility/context_manager.c"
+#include "../context-manager/context_manager.h"
 
 int main() {
-  FileContextManager* file = FileContextManager_new("file.txt");
+  FileContextManager* file = FileContextManager_new("./tests/file_context_manager_test.c");
 
   if (FileContextManager_enter(file)) {
     char line[256];
