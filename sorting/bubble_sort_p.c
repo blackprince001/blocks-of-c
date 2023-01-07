@@ -48,3 +48,7 @@ void test() {
     for (int i=0; i < 10; ++i)
         printf("Pointers of the array after sort - %p\n", &testArray[i]);
 }
+
+int main() {
+    test();
+}
