@@ -1,3 +1,4 @@
 .vscode
 .editorconfig
 build
+.DS_STORE
