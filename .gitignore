@@ -2,3 +2,4 @@
 .editorconfig
 build
 .DS_STORE
+.cache
