@@ -42,13 +42,13 @@ int main() {
   else
     printf("%i is at %i in the list!\n", to_be_found, location);
 
-  // using the pointers method.
-  int *locationPtr = binary_search_pointers_f(collections, to_be_found, 8);
+  // // using the pointers method.
+  // int *locationPtr = binary_search_pointers_f(collections, to_be_found, 8);
 
-  if (locationPtr == NULL)
-    printf("%i cannot be found in the list.\n", to_be_found);
-  else
-    printf("%i is at %p in the list!\n", to_be_found, locationPtr);
+  // if (locationPtr == NULL)
+  //   printf("%i cannot be found in the list.\n", to_be_found);
+  // else
+  //   printf("%i is at %p in the list!\n", to_be_found, locationPtr);
 
   return 0;
 }
