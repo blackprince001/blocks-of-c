@@ -33,7 +33,7 @@ void bubbleSortWithoutPointers( int arr[], int size ) {
 }
 
 void test() {
-    int testArray[10] = {2, 3, 1, 4, 6, 5, 9, 8, 7, 10};
+    int testArray[10] = {2, 3, 1, 4, 6, 5, 9, 8, 7, 11};
     for(int j=0; j < 10; ++j)
         printf("Elements in the testArray- %i\n", testArray[j]);
 
