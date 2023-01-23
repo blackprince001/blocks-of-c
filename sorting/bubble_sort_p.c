@@ -7,18 +7,18 @@ void swap( int *p1, int *p2 ) {
     *p2 = tmp;
 }
 
-void bubbleSort_p( int arr[], int size ) {
+void bubbleSort_p( int *first, int *last, int size ) {
     if (size <= 1) return;
-    int *last = arr + (size-1);
+    last = first + (size-1);
     int curr;
     _Bool swapped = false;
     for (curr=0 ; curr < *last; curr++) {
-        if (*(arr + curr) > *(arr + (curr + 1))) {
-            swap(&arr[curr], &arr[curr+1]);
+        if (*(first + curr) > *(first + (curr + 1))) {
+            swap(&first[curr], &first[curr+1]);
             swapped = true;
     }
     if (swapped) 
-        bubbleSort_p(arr, size-1);
+        bubbleSort_p(first, last-1,  size-1);
   }
 }
 
@@ -40,7 +40,7 @@ void test() {
     for (int i=0; i < 10; ++i)
         printf("Pointers of the array before sort - %p\n", &testArray[i]);
 
-    bubbleSort_p(testArray, 10);
+    bubbleSort_p(testArray, testArray+10, 10);
 
     for(int j=0; j < 10; ++j)
         printf("Elements in the testArray- %i\n", testArray[j]);
