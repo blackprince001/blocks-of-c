@@ -1,0 +1,1 @@
+add_executable(named_function_param named_function_parameters.c)
