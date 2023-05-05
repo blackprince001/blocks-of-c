@@ -1,7 +1,8 @@
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
-int main() {
+int main()
+{
   int num = 101;
   int base = 2;
 
@@ -12,7 +13,8 @@ int main() {
     printf("quotient=%i, remainder=%i\n", quo, r);
     num = quo;
 
-    if (num == 0) break;
+    if (num == 0)
+      break;
   }
   return 0;
 }

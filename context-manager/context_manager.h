@@ -8,49 +8,53 @@
 extern char* strdup(const char*);
 
 typedef struct FileContextManager {
-    // The filename of the file to be opened
-    char* filename;
+  // The filename of the file to be opened
+  char* filename;
 
-    // The file handle
-    FILE* file;
+  // The file handle
+  FILE* file;
 } FileContextManager;
 
 // The "constructor" function for the FileContextManager object
-FileContextManager* FileContextManager_new(const char* filename) {
-    FileContextManager* self = malloc(sizeof(FileContextManager));
-    self->filename = strdup(filename);
-    self->file = NULL;
-    return self;
+FileContextManager* FileContextManager_new(const char* filename)
+{
+  FileContextManager* self = malloc(sizeof(FileContextManager));
+  self->filename = strdup(filename);
+  self->file = NULL;
+  return self;
 }
 
 // The "destructor" function for the FileContextManager object
-void FileContextManager_delete(FileContextManager* self) {
-    if (self) {
-        if (self->file) {
-            // Close the file handle
-            fclose(self->file);
-        }
-        free(self->filename);
-        free(self);
+void FileContextManager_delete(FileContextManager* self)
+{
+  if (self) {
+    if (self->file) {
+      // Close the file handle
+      fclose(self->file);
     }
+    free(self->filename);
+    free(self);
+  }
 }
 
 // The "enter" function for the FileContextManager object
 // This function is called when the context manager is entered
-int FileContextManager_enter(FileContextManager* self) {
-    // Open the file and store the handle in the FileContextManager object
-    self->file = fopen(self->filename, "r");
-    if (self->file == NULL) {
-        // Failed to open the file
-        return 0;
-    }
-    // Successfully opened the file
-    return 1;
+int FileContextManager_enter(FileContextManager* self)
+{
+  // Open the file and store the handle in the FileContextManager object
+  self->file = fopen(self->filename, "r");
+  if (self->file == NULL) {
+    // Failed to open the file
+    return 0;
+  }
+  // Successfully opened the file
+  return 1;
 }
 
 // The "exit" function for the FileContextManager object
 // This function is called when the context manager is exited
-void FileContextManager_exit(FileContextManager* self, int exc_type, void* exc_value, void* traceback) {
-    // Free the filename and close the file handle
-    FileContextManager_delete(self);
+void FileContextManager_exit(FileContextManager* self, int exc_type, void* exc_value, void* traceback)
+{
+  // Free the filename and close the file handle
+  FileContextManager_delete(self);
 }
