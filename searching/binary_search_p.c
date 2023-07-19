@@ -4,8 +4,7 @@
 // binary search algo for retrieving addresses of found items
 // but for now, enjoy this!
 
-int binary_search_f(int arr[], const int item, int size)
-{
+int binary_search_f(int arr[], const int item, int size) {
   int lp = 0;
   int rp = size - 1;
   while (lp <= rp) {
@@ -21,9 +20,8 @@ int binary_search_f(int arr[], const int item, int size)
   return -1;
 }
 
-void* binary_search_pointers_f(int arr[], const int item, int size)
-{
-  int* lptr = arr;
+void *binary_search_pointers_f(int arr[], const int item, int size) {
+  int *lptr = arr;
   int *rptr = arr + (size - 1), *mid;
   while (lptr <= rptr) {
     mid = arr + (rptr - lptr) / 2;
@@ -38,9 +36,8 @@ void* binary_search_pointers_f(int arr[], const int item, int size)
   return NULL;
 }
 
-int main()
-{
-  int collections[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+int main() {
+  int collections[] = {1, 2, 3, 4, 5, 6, 7, 8};
   int to_be_found = 5, location = 0;
 
   location = binary_search_f(collections, to_be_found, 8);
