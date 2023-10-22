@@ -9,7 +9,7 @@ struct _foo_args {
   const char *text;
 };
 
-#define foo(...) _foo((struct _foo_args) { __VA_ARGS__ })
+#define foo(...) _foo((struct _foo_args){__VA_ARGS__})
 
 int _foo(struct _foo_args args) {
   puts(args.text);

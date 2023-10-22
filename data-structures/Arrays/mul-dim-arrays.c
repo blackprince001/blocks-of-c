@@ -4,15 +4,13 @@
 
 typedef float ROW_t[NCOLS];
 
-void printRow(const ROW_t pRow)
-{
+void printRow(const ROW_t pRow) {
   for (int cl = 0; cl < NCOLS; ++cl)
     printf("%6.2f", pRow[cl]);
   printf("\n");
 }
 
-void printMatrix(const ROW_t* pMat, int nRows)
-{
+void printMatrix(const ROW_t *pMat, int nRows) {
   for (int r = 0; r < nRows; ++r) {
     for (int cl = 0; cl < NCOLS; ++cl)
       printf("%6.2f", pMat[r][cl]);
@@ -21,8 +19,7 @@ void printMatrix(const ROW_t* pMat, int nRows)
 
 typedef int Matrix[16][16];
 
-void p_matrix_memory_data(Matrix* pMat, int mROWS, int mCOLS)
-{
+void p_matrix_memory_data(Matrix *pMat, int mROWS, int mCOLS) {
   for (int row = 0; row < mROWS; ++row) {
     for (int col = 0; col < mCOLS; ++col) {
       // shift the null values in the intialized mul-dim array
@@ -35,8 +32,7 @@ void p_matrix_memory_data(Matrix* pMat, int mROWS, int mCOLS)
   printf("Sizeof(pMat) = %lu\n", sizeof(pMat));
 }
 
-void example()
-{
+void example() {
   const int mROWs = 3;
   const int mCOLS = 4;
   Matrix example[mROWs][mCOLS];

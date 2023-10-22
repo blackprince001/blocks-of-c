@@ -1,15 +1,13 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-void swap(int* p1, int* p2)
-{
+void swap(int *p1, int *p2) {
   int tmp = *p1;
   *p1 = *p2;
   *p2 = tmp;
 }
 
-void bubbleSort_p(int* first, int* last, int size)
-{
+void bubbleSort_p(int *first, int *last, int size) {
   if (size <= 1)
     return;
   last = first + (size - 1);
@@ -25,8 +23,7 @@ void bubbleSort_p(int* first, int* last, int size)
   }
 }
 
-void bubbleSortWithoutPointers(int arr[], int size)
-{
+void bubbleSortWithoutPointers(int arr[], int size) {
   if (size <= 1)
     return;
   for (int i = 0; i < size - 1; ++i) {
@@ -37,9 +34,8 @@ void bubbleSortWithoutPointers(int arr[], int size)
   }
 }
 
-void test()
-{
-  int testArray[10] = { 2, 3, 1, 4, 6, 5, 9, 8, 7, 11 };
+void test() {
+  int testArray[10] = {2, 3, 1, 4, 6, 5, 9, 8, 7, 11};
   for (int j = 0; j < 10; ++j)
     printf("Elements in the testArray- %i\n", testArray[j]);
 
@@ -55,7 +51,4 @@ void test()
     printf("Pointers of the array after sort - %p\n", &testArray[i]);
 }
 
-int main()
-{
-  test();
-}
+int main() { test(); }
